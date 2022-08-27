@@ -1,0 +1,2 @@
+# Solidity
+ASSINGMENTS OF WEB3 LEARNS
