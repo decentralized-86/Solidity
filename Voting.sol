@@ -18,7 +18,7 @@ contract Voting
         require(voting[msg.sender] < 1,"You Didn't Payed the Voting Fee");
         voting[msg.sender] = 1;
         (bool success,) = msg.sender.call{value:1 ether}("") ;
-         Require(success,"transaction failed");
+         require(success,"transaction failed");
 }
     function Vote() public 
     {
