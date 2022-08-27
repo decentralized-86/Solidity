@@ -14,11 +14,11 @@ contract Voting
     function PayVoteFee() external payable 
     {
         require(msg.sender  != owner,"Owner Cannot pay ... :-) ");
-        require(msg.value == 1,"YOU NEED TO PAY  EXCATLY 1 ETHER ");
+        require(msg.value == 1 ether,"YOU NEED TO PAY  EXCATLY 1 ETHER ");
         require(voting[msg.sender] < 1,"You Didn't Payed the Voting Fee");
         voting[msg.sender] = 1;
-        (bool success,) = msg.sender.call{value:1 ether}("") ;
-         require(success,"transaction failed");
+        (bool success,) = payable (address(this)).call{value : 1 ether}("");
+        require(success,"transaction failed");
 }
     function Vote() public 
     {
